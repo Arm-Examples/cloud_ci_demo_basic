@@ -2,6 +2,8 @@
 
 This repository showcases how to use GitHub Actions together with a Docker image to run CI test automatically in the cloud.
 
+A more complex example is available in [Arm-Examples/cloud_ci_demo_rv2](https://github.com/Arm-Examples/cloud_ci_demo_rv2).
+
 ## Structure
 
 |Directory         |Description                             |
