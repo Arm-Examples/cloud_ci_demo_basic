@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE/cloud_ci_demo, so your job can access it
       - uses: actions/checkout@v2
         with: 
-          repository: Arm-Examples/cloud_ci_demo_basic
+          repository: $GITHUB_REPOSITORY
           path: cloud_ci_demo
   
       #- name: Login to Docker Hub (not necessary for public images)
