@@ -15,6 +15,6 @@ int main(int argc, char *argv[]) {
   printf("Basic CI example\n");
   assert(2 == my_sum(1, 1));
   assert(-2 == my_sum(-1, -1));
-  assert(1 == my_sum(0, 0));
+  assert(0 == my_sum(0, 0));
   return(0);
 }
