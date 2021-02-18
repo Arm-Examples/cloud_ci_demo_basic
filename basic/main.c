@@ -10,7 +10,7 @@ int my_sum(int a, int b) {
   return a + b;
 }
 
-// In test_my_sum.c
+// In test_my_sum.c - 
 int main(int argc, char *argv[]) {
   printf("Basic CI example\n");
   assert(2 == my_sum(1, 1));
