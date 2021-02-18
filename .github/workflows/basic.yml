@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "ci_build_and_test_basic_project"
   ci_build_and_test_basic_project:
     # The type of runner that the job will run on
-    runs-on: bad-pullrequest-test
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,7 +36,7 @@ jobs:
 
       # Pull latest image from Dockerhub and create a container that mounts the $GITHUB_WORKSPACE in /workspace/host. 
       - name: Create Container from Image
-        run : docker run -i -v ${{ github.workspace }}:/workspace/host --mac-address="00:02:F7:FF:55:55" --name testcontainer -d armmcutools/cmsis_tools_m55:latest 
+        run : docker run -i -v ${{ github.workspace }}:/workspace/host --mac-address="00:02:F7:FF:55:55" --name testcontainer -d armswdev/cmsis_tools_m55:latest 
 
       # Execute CMSIS Build command to build the executable for a Cortex-M55 using Arm Compiler
       - name: Build Basic Project
