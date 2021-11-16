@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 ARM Limited
+ * Copyright (c) 2020-2021 Arm Limited. All rights reserved.
  *
  * Licensed under the Apache License Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARM_LTD_DEVICE_CFG_H__
-#define __ARM_LTD_DEVICE_CFG_H__
+#ifndef __DEVICE_CFG_H__
+#define __DEVICE_CFG_H__
 
 /**
  * \file device_cfg.h
@@ -29,19 +29,44 @@
 
 /* Secure only peripheral configuration */
 
-/* ARM MPS2 IO SCC */
-#define ARM_MPS2_IO_SCC_S
-#define ARM_MPS2_IO_SCC_DEV      ARM_MPS2_IO_SCC_DEV_S
+/* ARM MPS3 IO SCC */
+#define MPS3_IO_S
+#define MPS3_IO_DEV                 MPS3_IO_DEV_S
 
 /* ARM UART Controller PL011 */
 #define UART0_CMSDK_S
-#define UART0_CMSDK_DEV          ARM_UART0_DEV_S
+#define UART0_CMSDK_DEV          UART0_CMSDK_DEV_S
 #define UART1_CMSDK_S
-#define UART1_CMSDK_DEV          ARM_UART1_DEV_S
-#define UART2_CMSDK_S
-#define UART2_CMSDK_DEV          ARM_UART2_DEV_S
+#define UART1_CMSDK_DEV          UART1_CMSDK_DEV_S
 
 #define DEFAULT_UART_BAUDRATE    115200U
+
+/* To be used as CODE and DATA sram */
+#define MPC_ISRAM0_S
+#define MPC_ISRAM0_DEV              MPC_ISRAM0_DEV_S
+
+#define MPC_ISRAM1_S
+#define MPC_ISRAM1_DEV              MPC_ISRAM0_DEV_S
+
+#define MPC_SRAM_S
+#define MPC_SRAM_DEV                MPC_SRAM_DEV_S
+
+#define MPC_QSPI_S
+#define MPC_QSPI_DEV                MPC_QSPI_DEV_S
+
+/** System Counter Armv8-M */
+#define SYSCOUNTER_CNTRL_ARMV8_M_S
+#define SYSCOUNTER_CNTRL_ARMV8_M_DEV    SYSCOUNTER_CNTRL_ARMV8_M_DEV_S
+
+#define SYSCOUNTER_READ_ARMV8_M_S
+#define SYSCOUNTER_READ_ARMV8_M_DEV     SYSCOUNTER_READ_ARMV8_M_DEV_S
+/**
+ * Arbitrary scaling values for test purposes
+ */
+#define SYSCOUNTER_ARMV8_M_DEFAULT_SCALE0_INT           1u
+#define SYSCOUNTER_ARMV8_M_DEFAULT_SCALE0_FRACT         0u
+#define SYSCOUNTER_ARMV8_M_DEFAULT_SCALE1_INT           1u
+#define SYSCOUNTER_ARMV8_M_DEFAULT_SCALE1_FRACT         0u
 
 /* System timer */
 #define SYSTIMER0_ARMV8_M_S
@@ -68,9 +93,9 @@
 #define GPIO3_CMSDK_S
 #define GPIO3_CMSDK_DEV GPIO3_CMSDK_DEV_S
 
-/* ARM MPS2 IO FPGAIO driver structures */
-#define ARM_MPS2_IO_FPGAIO_S
-#define ARM_MPS2_IO_FPGAIO_DEV ARM_MPS2_IO_FPGAIO_DEV_S
+/* ARM MPS3 IO FPGAIO driver structures */
+#define ARM_MPS3_IO_FPGAIO_S
+#define ARM_MPS3_IO_FPGAIO_DEV ARM_MPS3_IO_FPGAIO_DEV_S
 
 /* System Watchdogs */
 #define SYSWDOG_ARMV8_M_S
@@ -117,4 +142,4 @@
 #define SPI1_PL022_DEV SPI1_PL022_DEV_S
 
 
-#endif  /* __ARM_LTD_DEVICE_CFG_H__ */
+#endif  /* __DEVICE_CFG_H__ */

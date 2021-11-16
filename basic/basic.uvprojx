@@ -7,23 +7,23 @@
 
   <Targets>
     <Target>
-      <TargetName>Debug</TargetName>
+      <TargetName>debug</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6140001::V6.14.1::ARMCLANG</pCCUsed>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>SSE-300-MPS2</Device>
+          <Device>SSE-300-MPS3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.V2M_MPS2_SSE_300_BSP.1.0.0</PackID>
+          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.2.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
-          <Cpu>IRAM(0x38000000,0x00200000) IRAM2(0x28000000,0x00200000) IROM(0x10000000,0x00040000) IROM2(0x00000000,0x00040000) XRAM(0x38200000,0x00200000) XRAM2(0x28200000,0x00200000) XRAM3(0x31000000,0x00040000) CPUTYPE("Cortex-M55") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
+          <Cpu>IRAM(0x00000000,0x00080000) IRAM2(0x01000000,0x00200000) XRAM(0x20000000,0x00020000) XRAM2(0x20020000,0x00020000) XRAM3(0x20040000,0x00020000) CPUTYPE("Cortex-M55") FPU3(DFPU) DSP TZ MVE(FP) CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD38000000 -FC1000)</FlashDriverDll>
+          <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD01000000 -FC1000)</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:SSE-300-MPS2$Board\Platform\platform_description.h</RegisterFile>
+          <RegisterFile>$$Device:SSE-300-MPS3$Device\Include\SSE300MPS3.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:SSE-300-MPS2$SVD\SSE300.svd</SFDFile>
+          <SFDFile>$$Device:SSE-300-MPS3$SVD\SSE300.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>CMSIS-RV2</OutputName>
+          <OutputName>basic</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -114,7 +114,7 @@
           <SimDlgDll></SimDlgDll>
           <SimDlgDllArguments></SimDlgDllArguments>
           <TargetDllName>SARMV8M.DLL</TargetDllName>
-          <TargetDllArguments> -MPU</TargetDllArguments>
+          <TargetDllArguments> -MPU -MVE</TargetDllArguments>
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM55</TargetDlgDllArguments>
         </DllOption>
@@ -133,12 +133,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <Capability>0</Capability>
+            <DriverSelection>4102</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -179,21 +179,21 @@
             <mOS>0</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
-            <hadIROM>1</hadIROM>
+            <hadIROM>0</hadIROM>
             <hadIRAM>1</hadIRAM>
             <hadXRAM>1</hadXRAM>
             <uocXRam>0</uocXRam>
-            <RvdsVP>2</RvdsVP>
-            <RvdsMve>0</RvdsMve>
+            <RvdsVP>3</RvdsVP>
+            <RvdsMve>2</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>1</hadIRAM2>
-            <hadIROM2>1</hadIROM2>
-            <StupSel>8</StupSel>
+            <hadIROM2>0</hadIROM2>
+            <StupSel>0</StupSel>
             <useUlib>0</useUlib>
             <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>2</nSecure>
-            <RoSelD>4</RoSelD>
+            <RoSelD>0</RoSelD>
             <RwSelD>4</RwSelD>
             <CodeSel>0</CodeSel>
             <OptFeed>0</OptFeed>
@@ -205,8 +205,8 @@
             <Ro1Chk>0</Ro1Chk>
             <Ro2Chk>0</Ro2Chk>
             <Ro3Chk>0</Ro3Chk>
-            <Ir1Chk>1</Ir1Chk>
-            <Ir2Chk>1</Ir2Chk>
+            <Ir1Chk>0</Ir1Chk>
+            <Ir2Chk>0</Ir2Chk>
             <Ra1Chk>0</Ra1Chk>
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
@@ -245,8 +245,8 @@
               </Ocm6>
               <IRAM>
                 <Type>0</Type>
-                <StartAddress>0x38000000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x80000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
@@ -255,8 +255,8 @@
               </IROM>
               <XRAM>
                 <Type>1</Type>
-                <StartAddress>0x38200000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x20000000</StartAddress>
+                <Size>0x20000</Size>
               </XRAM>
               <OCR_RVCT1>
                 <Type>1</Type>
@@ -275,37 +275,37 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x10000000</StartAddress>
-                <Size>0x40000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x0</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x40000</Size>
+                <Size>0x0</Size>
               </OCR_RVCT5>
               <OCR_RVCT6>
                 <Type>0</Type>
-                <StartAddress>0x38200000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x20000000</StartAddress>
+                <Size>0x20000</Size>
               </OCR_RVCT6>
               <OCR_RVCT7>
                 <Type>0</Type>
-                <StartAddress>0x28200000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x20020000</StartAddress>
+                <Size>0x20000</Size>
               </OCR_RVCT7>
               <OCR_RVCT8>
                 <Type>0</Type>
-                <StartAddress>0x31000000</StartAddress>
-                <Size>0x40000</Size>
+                <StartAddress>0x20040000</StartAddress>
+                <Size>0x20000</Size>
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x38000000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x80000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x28000000</StartAddress>
+                <StartAddress>0x1000000</StartAddress>
                 <Size>0x200000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>7</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -357,7 +357,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\RTE\_Debug</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -370,7 +370,7 @@
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\RTE\Device\ARMCM55\ARMCM55_ac6.sct</ScatterFile>
+            <ScatterFile>.\RTE\Device\SSE-300-MPS3\fvp_sse300_mps3_s.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -380,16 +380,6 @@
         </TargetArmAds>
       </TargetOption>
       <Groups>
-        <Group>
-          <GroupName>Documents</GroupName>
-          <Files>
-            <File>
-              <FileName>Abstract.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Abstract.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
         <Group>
           <GroupName>Source</GroupName>
           <Files>
@@ -544,6 +534,9 @@
             </GroupArmAds>
           </GroupOption>
         </Group>
+        <Group>
+          <GroupName>::Test</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>
@@ -551,16 +544,28 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.4.0" condition="ARMv6_7_8-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.1-dev0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.5.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device">
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+      <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Test" Cgroup="Unity" Cvariant="Classic" Cvendor="Arm-Packs" Cversion="2.5.0">
+        <package name="Unity" schemaVersion="1.6" url="https://github.com/MDK-Packs/Pack/raw/master/Unity/" vendor="Arm-Packs" version="1.0.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
         </targetInfos>
       </component>
     </components>
@@ -662,67 +667,123 @@
         <targetInfos/>
       </file>
       <file attr="config" category="header" name="CMSIS_Driver\Config\RTE_Device.h" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\RTE_Device.h</instance>
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\RTE_Device.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-        </targetInfos>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="CMSIS_Driver\Config\cmsis_driver_config.h" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\cmsis_driver_config.h</instance>
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\cmsis_driver_config.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-        </targetInfos>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="Board\Device_Definition\device_cfg.h" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\device_cfg.h</instance>
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\device_cfg.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-        </targetInfos>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
       </file>
       <file attr="config" category="linkerScript" condition="ARMCC" name="Device\Source\armclang\fvp_sse300_mps2_s.sct" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\fvp_sse300_mps2_s.sct</instance>
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\fvp_sse300_mps2_s.sct</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="header" name="Device\Include\region_defs.h" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\region_defs.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="header" name="Device\Include\region_limits.h" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\region_limits.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="Device\Source\startup_fvp_sse300_mps2.c" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\startup_fvp_sse300_mps2.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="Device\Source\system_core_init.c" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\SSE-300-MPS2\system_core_init.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
+        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="header" name="CMSIS_Driver\Config\RTE_Device.h" version="1.1.0">
+        <instance index="0">RTE\Device\SSE-300-MPS3\RTE_Device.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="CMSIS_Driver\Config\Baremetal\cmsis_driver_config.h" version="1.1.1">
+        <instance index="0">RTE\Device\SSE-300-MPS3\cmsis_driver_config.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Device\Config\Baremetal\device_cfg.h" version="1.1.2">
+        <instance index="0">RTE\Device\SSE-300-MPS3\device_cfg.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="linkerScript" name="Device\Source\armclang\fvp_sse300_mps3_s.sct" version="1.1.0">
+        <instance index="0">RTE\Device\SSE-300-MPS3\fvp_sse300_mps3_s.sct</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Board\Platform\platform_base_address.h" version="1.1.2">
+        <instance index="0">RTE\Device\SSE-300-MPS3\platform_base_address.h</instance>
+        <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="debug"/>
         </targetInfos>
       </file>
       <file attr="config" category="header" name="Device\Include\region_defs.h" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\region_defs.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <instance index="0">RTE\Device\SSE-300-MPS3\region_defs.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
         </targetInfos>
       </file>
       <file attr="config" category="header" name="Device\Include\region_limits.h" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\region_limits.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <instance index="0">RTE\Device\SSE-300-MPS3\region_limits.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\Source\startup_fvp_sse300_mps2.c" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\startup_fvp_sse300_mps2.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+      <file attr="config" category="source" name="Device\Source\startup_fvp_sse300_mps3.c" version="1.1.1">
+        <instance index="0">RTE\Device\SSE-300-MPS3\startup_fvp_sse300_mps3.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\Source\system_core_init.c" version="1.0.0">
-        <instance index="0">RTE\Device\SSE-300-MPS2\system_core_init.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS2 Device"/>
-        <package name="V2M_MPS2_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+      <file attr="config" category="source" name="Device\Source\system_SSE300MPS3.c" version="1.1.1">
+        <instance index="0">RTE\Device\SSE-300-MPS3\system_SSE300MPS3.c</instance>
+        <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
-          <targetInfo name="Debug"/>
+          <targetInfo name="debug"/>
         </targetInfos>
       </file>
     </files>
