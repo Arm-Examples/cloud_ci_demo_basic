@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 
+import logging
 import re
+import tarfile
 
+from datetime import datetime
 from enum import Enum
 from io import StringIO
 from junit_xml import TestSuite, TestCase, to_xml_report_string
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import AnyStr, Tuple
 
 from matrix_runner import main, matrix_axis, matrix_action, matrix_command, ConsoleReport, CropReport, ReportFilter
@@ -58,9 +62,22 @@ def cbuild(config):
 
 @matrix_action
 def fvp(config, results):
-    """Run the config(s) with virtual hardware."""
+    """Run the config(s) with fast model."""
     yield run_fvp(config)
     results[0].test_report.write(f"basic.junit")
+
+@matrix_action
+def vht(config , results):
+    """Run the config(s) with virtual hardware target."""
+    file = archive_workspace(config)
+    yield upload_vht(file)
+    if results[-1].success:
+        yield extract_vht(file)
+    if results[-1].success:
+        yield run_vht(config, file)
+        results[-1].test_report.write(f"basic.junit")
+    yield clean_vht(file)
+
 
 @matrix_command(needs_shell=True)
 def run_cbuild(config):
@@ -69,6 +86,34 @@ def run_cbuild(config):
 @matrix_command(test_report=ConsoleReport()|CropReport("---\[ UNITY BEGIN \]---", '---\[ UNITY END \]---')|UnityReport())
 def run_fvp(config):
     return ["FVP_Corstone_SSE-300_Ethos-U55", "-q", "--cyclelimit", "100000000", "-f", "fvp_config.txt", "Objects/basic.axf"]
+
+@matrix_command()
+def upload_vht(file):
+    return ["scp", file.name, f"ubuntu@10.252.22.142:~/{Path(file.name).name}"]
+
+@matrix_command()
+def extract_vht(file):
+    filename = Path(file.name).name
+    return ["ssh", "ubuntu@10.252.22.142", f"bash -c 'export filename={filename}; mkdir ${{filename%.*}} && cd ${{filename%.*}} && tar -xvjf ../${{filename}}'"]
+
+@matrix_command()
+def clean_vht(file):
+    filename = Path(file.name).name
+    return ["ssh", "ubuntu@10.252.22.142", f"bash -c 'export filename={filename}; rm ${{filename}} && rm -r ${{filename%.*}}'"]
+
+@matrix_command(test_report=ConsoleReport()|CropReport("---\[ UNITY BEGIN \]---", '---\[ UNITY END \]---')|UnityReport())
+def run_vht(config, file):
+    runcmd = " ".join(run_fvp(config)._fn())
+    filename = Path(file.name).name
+    return ["ssh", "ubuntu@10.252.22.142", f"bash -c 'export filename={filename}; source ~/.bashrc; cd ${{filename%.*}} && {runcmd}'"]
+
+def archive_workspace(config):
+    file = NamedTemporaryFile(suffix=".tbz2")
+    logging.info(f"Archiving workspace to {file.name}")
+    with tarfile.open(fileobj=file, mode="w:bz2") as archive:
+        archive.add(".")
+    file.flush()
+    return file
 
 if __name__ == "__main__":
     main()
