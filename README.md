@@ -1,3 +1,9 @@
+# DEPRECATED
+
+Use [Arm-Examples/AVH_CI_Template](https://github.com/Arm-Examples/AVH_CI_Template) instead.
+
+-------
+
 # Simple cloud-based CI demo
 
 This repository showcases how to use GitHub Actions together with a Docker image to run CI test automatically in the cloud.
